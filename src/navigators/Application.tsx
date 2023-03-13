@@ -5,7 +5,14 @@ import {
   NavigationContainer,
   useNavigationContainerRef,
 } from '@react-navigation/native';
-import { Startup } from '../screens';
+import {
+  ActiveAccount,
+  Camera,
+  Login,
+  PreviewInfo,
+  Register,
+  Startup,
+} from '../screens';
 import { useTheme } from '../hooks';
 import MainNavigator from './Main';
 import { useFlipper } from '@react-navigation/devtools';
@@ -28,6 +35,11 @@ const ApplicationNavigator = () => {
         <StatusBar barStyle={darkMode ? 'light-content' : 'dark-content'} />
         <Stack.Navigator screenOptions={{ headerShown: false }}>
           <Stack.Screen name="Startup" component={Startup} />
+          <Stack.Screen name="Register" component={Register} />
+          <Stack.Screen name="Login" component={Login} />
+          <Stack.Screen name="Camera" component={Camera} />
+          <Stack.Screen name="PreviewInfo" component={PreviewInfo} />
+          <Stack.Screen name="ActiveAccount" component={ActiveAccount} />
           <Stack.Screen name="Main" component={MainNavigator} />
         </Stack.Navigator>
       </NavigationContainer>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Example } from '../screens';
+import { ProductsList, Profile } from '../screens';
 
 const Tab = createBottomTabNavigator();
 
@@ -10,10 +10,24 @@ const MainNavigator = () => {
     <Tab.Navigator>
       <Tab.Screen
         name="Home"
-        component={Example}
+        component={ProductsList}
         options={{
           tabBarIconStyle: { display: 'none' },
           tabBarLabelPosition: 'beside-icon',
+          tabBarLabelStyle: {
+            fontWeight: 'bold',
+          },
+        }}
+      />
+      <Tab.Screen
+        name="Profile"
+        component={Profile}
+        options={{
+          tabBarIconStyle: { display: 'none' },
+          tabBarLabelPosition: 'beside-icon',
+          tabBarLabelStyle: {
+            fontWeight: 'bold',
+          },
         }}
       />
     </Tab.Navigator>

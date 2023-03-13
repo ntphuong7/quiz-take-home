@@ -13,15 +13,15 @@ import {
 } from 'redux-persist';
 import { MMKV } from 'react-native-mmkv';
 
-import { api } from '../services/api';
 import theme from './theme';
+import user from './user';
 
 const reducers = combineReducers({
   theme,
-  [api.reducerPath]: api.reducer,
+  user,
 });
 
-const storage = new MMKV();
+export const storage = new MMKV();
 export const reduxStorage: Storage = {
   setItem: (key, value) => {
     storage.set(key, value);
@@ -40,7 +40,7 @@ export const reduxStorage: Storage = {
 const persistConfig = {
   key: 'root',
   storage: reduxStorage,
-  whitelist: ['theme', 'auth'],
+  whitelist: ['theme'],
 };
 
 const persistedReducer = persistReducer(persistConfig, reducers);
@@ -52,7 +52,7 @@ const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }).concat(api.middleware);
+    });
 
     if (__DEV__ && !process.env.JEST_WORKER_ID) {
       const createDebugger = require('redux-flipper').default;

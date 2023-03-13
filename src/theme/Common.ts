@@ -15,7 +15,7 @@ export default function <C>({ Colors, ...args }: CommonParams<C>) {
         backgroundColor: Colors.primary,
       },
       backgroundReset: {
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.white,
       },
       textInput: {
         backgroundColor: Colors.inputBackground,
