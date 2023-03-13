@@ -13,6 +13,7 @@ export type ApplicationStackParamList = {
   Camera: undefined;
   PreviewInfo: undefined;
   ActiveAccount: undefined;
+  UpdateProfile: undefined;
   Main: NavigatorScreenParams<MainParamsList>;
 };
 

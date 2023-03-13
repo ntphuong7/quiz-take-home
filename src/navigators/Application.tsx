@@ -12,6 +12,7 @@ import {
   PreviewInfo,
   Register,
   Startup,
+  UpdateProfile,
 } from '../screens';
 import { useTheme } from '../hooks';
 import MainNavigator from './Main';
@@ -40,6 +41,7 @@ const ApplicationNavigator = () => {
           <Stack.Screen name="Camera" component={Camera} />
           <Stack.Screen name="PreviewInfo" component={PreviewInfo} />
           <Stack.Screen name="ActiveAccount" component={ActiveAccount} />
+          <Stack.Screen name="UpdateProfile" component={UpdateProfile} />
           <Stack.Screen name="Main" component={MainNavigator} />
         </Stack.Navigator>
       </NavigationContainer>

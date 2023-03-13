@@ -11,11 +11,17 @@ import { User } from '../../store/user';
 interface RegisterFormProps {
   onSubmitAction: (data: User) => void;
   userInfo?: User;
+  isUpdate?: Boolean;
 }
-export const RegisterForm = ({ onSubmitAction }: RegisterFormProps) => {
+export const RegisterForm = ({
+  onSubmitAction,
+  isUpdate = false,
+  userInfo,
+}: RegisterFormProps) => {
   const { Common, Fonts, Gutters, Layout, Colors } = useTheme();
   const { ...methods } = useForm({
     mode: 'onChange',
+    defaultValues: userInfo || {},
     resolver: yupResolver(schema),
   });
   const [formError, setError] = useState<Boolean>(false);
@@ -35,18 +41,23 @@ export const RegisterForm = ({ onSubmitAction }: RegisterFormProps) => {
               keyboardType="email-address"
               setFormError={setError}
             />
-            <TextInput
-              name="password"
-              label="Password"
-              secureTextEntry
-              setFormError={setError}
-            />
-            <TextInput
-              name="confirmPassword"
-              label="Confirm Password"
-              secureTextEntry
-              setFormError={setError}
-            />
+            {!isUpdate && (
+              <>
+                <TextInput
+                  name="password"
+                  label="Password"
+                  secureTextEntry
+                  setFormError={setError}
+                />
+                <TextInput
+                  name="confirmPassword"
+                  label="Confirm Password"
+                  secureTextEntry
+                  setFormError={setError}
+                />
+              </>
+            )}
+
             <TextInput name="name" label="Full Name " setFormError={setError} />
             <TextInput
               name="username"
@@ -82,7 +93,9 @@ export const RegisterForm = ({ onSubmitAction }: RegisterFormProps) => {
         ]}
         onPress={methods.handleSubmit(onSubmit)}
       >
-        <Text style={[Fonts.textRegular, { color: Colors.white }]}>Next</Text>
+        <Text style={[Fonts.textRegular, { color: Colors.white }]}>
+          {isUpdate ? 'Update' : 'Next'}
+        </Text>
       </TouchableOpacity>
     </>
   );

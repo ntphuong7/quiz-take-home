@@ -6,3 +6,4 @@ export { default as Login } from './Login/Login';
 export { default as Camera } from './Camera/Camera';
 export { default as PreviewInfo } from './PreviewInfo/PreviewInfo';
 export { default as ActiveAccount } from './ActiveAccount/ActiveAccount';
+export { default as UpdateProfile } from './UpdateProfile/UpdateProfile';

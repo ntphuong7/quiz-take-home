@@ -25,10 +25,6 @@ const PreviewInfo = () => {
       mediaType: 'photo',
       selectionLimit: 0,
     };
-    // const result = await launchPreviewInfo({
-    //   saveToPhotos: true,
-    //   mediaType: 'photo',
-    // });
     const result = await launchImageLibrary(options);
     if (result.assets) {
       setPickedImage(result.assets);

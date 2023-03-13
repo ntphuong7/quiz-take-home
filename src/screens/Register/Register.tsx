@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Text, ScrollView } from 'react-native';
 
 import { useTheme } from '../../hooks';
 
-import { useNavigation } from '@react-navigation/native';
+import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import { RegisterForm } from '../../components';
 import { setUser, User, UserState } from '../../store/user';
 import { useDispatch, useSelector } from 'react-redux';
@@ -16,6 +16,11 @@ const Register = () => {
   );
 
   const dispatch = useDispatch();
+  // useFocusEffect(
+  //   React.useCallback(() => {
+  //     return () => dispatch(setUser({ userInfo: {} as User }));
+  //   }, []),
+  // );
   const onSubmitForm = (data: User) => {
     dispatch(setUser({ userInfo: data, isActive: false }));
     navigation.navigate('Camera');

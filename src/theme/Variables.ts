@@ -9,7 +9,6 @@
  * Colors
  */
 export const Colors = {
-  // Example.tsx colors:
   transparent: 'rgba(0,0,0,0)',
   inputBackground: '#FFFFFF',
   white: '#ffffff',
